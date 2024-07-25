@@ -71,11 +71,16 @@ export const Capture = () => {
   const captureImage = () => {
     if (!videoRef.current || !canvasRef.current) return;
 
+    const video = videoRef.current;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
+    // Set canvas dimensions to match the video resolution
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
     // Draw the video frame to the canvas
-    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     // Get the overlay text elements
     const textElements = document.querySelectorAll("#overlay-text div");
