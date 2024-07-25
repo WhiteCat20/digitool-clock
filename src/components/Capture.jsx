@@ -18,7 +18,11 @@ export const Capture = () => {
     const startCamera = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: { width: 1280, height: 720 },
+          video: {
+            width: 1280,
+            height: 720,
+            facingMode: { exact: "environment" },
+          },
         });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
