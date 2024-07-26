@@ -94,7 +94,7 @@ export const Capture = () => {
       context.strokeStyle = "black"; // Set the stroke color
       context.lineWidth = 3; // Set the stroke width
       context.font = "24px Arial";
-      
+
       // Draw the stroke first
       context.strokeText(el.textContent, 16, 1000 + index * 30);
       // Then fill the text
@@ -116,7 +116,7 @@ export const Capture = () => {
     <div>
       <div className="flex justify-center mt-[4%]">
         <div style={{ position: "relative", width: "840px" }}>
-          <video ref={videoRef} autoPlay muted style={{ rotate:'90deg' }}></video>
+          <video ref={videoRef} autoPlay muted></video>
           <div
             id="overlay-text"
             style={{
