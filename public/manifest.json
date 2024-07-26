@@ -1,7 +1,7 @@
 {
   "name": "Digitool Clock Pertamina",
   "short_name": "Digitool Clock",
-  "theme_color": "#ec000e",
+  "theme_color": "#fff",
   "background_color": "#fff",
   "display": "fullScreen",
   "orientation": "portrait",

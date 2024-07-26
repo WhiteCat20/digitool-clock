@@ -78,6 +78,8 @@ export const Capture = () => {
     // Set canvas dimensions to match the video resolution
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
+    // canvas.width = 720
+    // canvas.height = 1280
 
     // Draw the video frame to the canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -86,11 +88,17 @@ export const Capture = () => {
     const textElements = document.querySelectorAll("#overlay-text div");
 
     textElements.forEach((el, index) => {
-      context.fillStyle = "rgba(0, 0, 0, 1)";
-      // context.fillRect(15, 200 + (index * 40), 200, 40); // Background for text
+      context.fillStyle = "rgba(255, 0, 0, 1)";
+      // context.fillRect(16, 460 + (index * 40), 750, 40); // Background for text
       context.fillStyle = "white";
-      context.font = "16px Arial";
-      context.fillText(el.textContent, 15, 250 + index * 20);
+      context.strokeStyle = "black"; // Set the stroke color
+      context.lineWidth = 3; // Set the stroke width
+      context.font = "24px Arial";
+      
+      // Draw the stroke first
+      context.strokeText(el.textContent, 16, 1000 + index * 30);
+      // Then fill the text
+      context.fillText(el.textContent, 16, 1000 + index * 30);
     });
 
     // Get the image data from the canvas
@@ -108,7 +116,7 @@ export const Capture = () => {
     <div>
       <div className="flex justify-center mt-[4%]">
         <div style={{ position: "relative", width: "840px" }}>
-          <video ref={videoRef} autoPlay muted></video>
+          <video ref={videoRef} autoPlay muted style={{ rotate:'90deg' }}></video>
           <div
             id="overlay-text"
             style={{
@@ -133,7 +141,7 @@ export const Capture = () => {
       </div>
       <div className="flex justify-center">
         <button
-          className="bg-red-600 p-2 text-white mt-6"
+          className="bg-red-600 p-2 text-white mt-[20%]"
           onClick={captureImage}
         >
           Capture Image
